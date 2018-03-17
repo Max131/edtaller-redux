@@ -1,7 +1,8 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 const History = props => (
-  props.operations.length > 0 && props.operations !== undefined
+  props.operations.length > 0
   ?
   <table>
       <thead>
@@ -21,5 +22,9 @@ const History = props => (
   </table>
   : <p>En este instante no hay operaciones</p>
 )
+const mapStateToProps = state => ({
+    operations : state.operations
+})
 
-export default History
+
+export default connect(mapStateToProps)(History)
