@@ -2,16 +2,16 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { CALCULATE, SAVE_OPERATION } from '../actions'
 
-const calculate = props => {
-  let numberOne = document.getElementById('value-one')
-  let numberTwo = document.getElementById('value-two')
+const calculate = ({calculateOperation, saveOperation}) => {
+  const numberOne = document.getElementById('value-one')
+  const numberTwo = document.getElementById('value-two')
   let result = Number(numberOne.value) + Number(numberTwo.value)
 
-  props.calculateOperation(result)
-  props.saveOperation(numberOne.value + ' + ' + numberTwo.value + ' = ' + result)
+  calculateOperation(result)
+  saveOperation(numberOne.value + ' + ' + numberTwo.value + ' = ' + result)
 }
 
-const Calculator = props => (
+const Calculator = (props) => (
   <div>
       <input type = 'number' placeholder = 'Numero 1' id = 'value-one'/>
       <br/>

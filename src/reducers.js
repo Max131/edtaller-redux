@@ -1,6 +1,6 @@
 export const saveOperation = (state,action) => ({
   ...state,
-  operations : state.operations.concat(action.operation) 
+  operations : [...state.operations, action.operation]
 })
 
 export const calculate = (state,action) => ({

@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-const History = props => (
-  props.operations.length > 0
+const History = ({operations}) => (
+  operations.length > 0
   ?
   <table>
       <thead>
@@ -12,8 +12,8 @@ const History = props => (
       </thead>
       <tbody>
           {
-              props.operations.map(operation => (
-                  <tr>
+              operations.map((operation, index) => (
+                  <tr key={index}>
                       <td>{ operation }</td>
                   </tr>
               ))
